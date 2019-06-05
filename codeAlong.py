@@ -29,3 +29,12 @@ for w in words:
     if w not in stop_words:
         filtered_sentence.append(w)
 print (filtered_sentence)
+
+# PART 3: Stemming
+
+from nltk.stem import PorterStemmer
+
+ps = PorterStemmer()
+example_words = ["python", "pythoner", "pythoning", "pythoned", "pythonly"]
+for w in example_words:
+    print(ps.stem(w))
