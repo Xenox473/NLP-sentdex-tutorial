@@ -96,6 +96,39 @@ def process_content():
     except Exception as e:
         print(str(e))
 
-process_content()
+# process_content()
 
-# PART 5: Chunking
+# PART 5 : Chunking
+
+def process_content():
+    try:
+        for i in tokenized:
+            words = nltk.word_tokenize(i)
+            tagged = nltk.pos_tag(words)
+            chunkGram = r"""Chunk: {<RB.?>*<VB.?>*<NNP>+<NN>?}"""
+            chunkParser = nltk.RegexpParser(chunkGram)
+            chunked = chunkParser.parse(tagged)
+            # print(chunked)
+            chunked.draw()
+    except Exception as e:
+        print(str(e))
+
+# process_content()
+
+# PART 6 : Chinking
+
+def process_content():
+    try:
+        for i in tokenized:
+            words = nltk.word_tokenize(i)
+            tagged = nltk.pos_tag(words)
+            chunkGram = r"""Chunk: {<.*>+}
+                                    }<VB.?|IN|DT|TO>+{"""
+            chunkParser = nltk.RegexpParser(chunkGram)
+            chunked = chunkParser.parse(tagged)
+            # print(chunked)
+            chunked.draw()
+    except Exception as e:
+        print(str(e))
+
+process_content()
